@@ -35,7 +35,7 @@ public class IndexController {
     @GetMapping("movies")
     public String movies(Model model) {
         List<String> myMovies = getBestMovies();
-        String bestMovies = String.join(", ", myMovies.subList(0, myMovies.size() - 1)) + ", " + myMovies.get(myMovies.size() - 1);
+        String bestMovies = String.join(", ", myMovies);
         model.addAttribute("movies", bestMovies);
         model.addAttribute("name", myName);
         return "home-page";
@@ -44,7 +44,7 @@ public class IndexController {
     @GetMapping("songs")
     public String songs(Model model) {
         List<String> mySongs = getBestSongs();
-        String bestSongs = String.join(", ", mySongs.subList(0, mySongs.size() - 1)) + ", " + mySongs.get(mySongs.size() - 1);
+        String bestSongs = String.join(", ", mySongs);
         model.addAttribute("songs", bestSongs);
         model.addAttribute("name", myName);
         return "home-page";
