@@ -1,5 +1,7 @@
 package org.lessons.java.bestoftheyear.controller;
 
+import org.lessons.java.bestoftheyear.model.Movie;
+import org.lessons.java.bestoftheyear.model.Song;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,32 +22,30 @@ public class IndexController {
         return "home-page";
     }
 
-    private List<String> getBestMovies() {
-        String[] moviesArray = {"Back To The Future", "Catch Me If You Can", "Oppenheimer", "Kill Bill", "Inception"};
-        List<String> movies = new ArrayList<>(Arrays.asList(moviesArray));
+    private List<Movie> getBestMovies() {
+        Movie[] moviesArray = {new Movie(1, "Back To The Future"), new Movie(2, "Catch Me If You Can"), new Movie(3, "Oppenheimer"), new Movie(4, "Kill Bill"), new Movie(5, "Inception")};
+        List<Movie> movies = new ArrayList<>(Arrays.asList(moviesArray));
         return movies;
     }
 
-    private List<String> getBestSongs() {
-        String[] songsArray = {"Master of Puppets", "Highway to Hell", "Ace of Spades", "Fear Of The Dark", "Wind of Change"};
-        List<String> songs = new ArrayList<>(Arrays.asList(songsArray));
+    private List<Song> getBestSongs() {
+        Song[] songsArray = {new Song(6, "Master of Puppets"), new Song(7, "Highway to Hell"), new Song(8, "Ace of Spades"), new Song(9, "Fear Of The Dark"), new Song(10, "Wind of Change")};
+        List<Song> songs = new ArrayList<>(Arrays.asList(songsArray));
         return songs;
     }
 
     @GetMapping("movies")
     public String movies(Model model) {
-        List<String> myMovies = getBestMovies();
-        String bestMovies = String.join(", ", myMovies);
-        model.addAttribute("movies", bestMovies);
+        List<Movie> myMovies = getBestMovies();
+        model.addAttribute("movies", myMovies);
         model.addAttribute("name", myName);
         return "home-page";
     }
 
     @GetMapping("songs")
     public String songs(Model model) {
-        List<String> mySongs = getBestSongs();
-        String bestSongs = String.join(", ", mySongs);
-        model.addAttribute("songs", bestSongs);
+        List<Song> mySongs = getBestSongs();
+        model.addAttribute("songs", mySongs);
         model.addAttribute("name", myName);
         return "home-page";
     }

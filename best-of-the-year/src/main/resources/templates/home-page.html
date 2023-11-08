@@ -13,8 +13,8 @@
     <span th:text="${name}"></span>
 </h1>
 <h2>
-    <span th:text="${movies}"></span>
-    <span th:text="${songs}"></span>
+    <span th:each="movie, i : ${movies}" th:text="${!i.last} ? |${movie.title}, | : |${movie.title}|"></span>
+    <span th:each="song, i : ${songs}" th:text="${!i.last} ? |${song.title}, | : |${song.title}|"></span>
 </h2>
 </body>
 </html>
