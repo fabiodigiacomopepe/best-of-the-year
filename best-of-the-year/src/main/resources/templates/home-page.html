@@ -1,20 +1,15 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-</head>
+<head th:insert="/fragments/resources :: headResources('Home')"></head>
 <body>
-<h1>
+<nav th:replace="/fragments/navbar :: topNavbar('Home')"></nav>
+<h1 style="text-align: center">
     <span>Best of the year by </span>
     <span th:text="${name}"></span>
 </h1>
-<h2>
-    <span th:each="movie, i : ${movies}" th:text="${!i.last} ? |${movie.title}, | : |${movie.title}|"></span>
-    <span th:each="song, i : ${songs}" th:text="${!i.last} ? |${song.title}, | : |${song.title}|"></span>
+<h2 class="lorem">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet, assumenda aut delectus deserunt dolor eius
+    fuga impedit inventore ipsam iste itaque nam omnis perspiciatis quae, quam quasi sed veniam?
 </h2>
 </body>
 </html>

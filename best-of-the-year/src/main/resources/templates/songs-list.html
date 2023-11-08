@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="/fragments/resources :: headResources('Songs List')"></head>
+<body>
+<nav th:replace="/fragments/navbar :: topNavbar('Songs')"></nav>
+<h1 class="title">
+    Best Songs
+</h1>
+<h2>
+    <ul>
+        <li th:each="song : ${songs}">
+            <a th:href="@{|/songs/${song.id}|}">
+                <span th:text="|${song.id} -|"></span>
+                <span th:text="${song.title}"></span>
+            </a>
+        </li>
+    </ul>
+</h2>
+</body>
+</html>

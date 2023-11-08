@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav class="navbar bg-body-tertiary" th:fragment="topNavbar(area)">
+    <a class="navbar-brand" th:href="@{/}" style="margin-left: 20px">Best of</a>
+    <div style="width: 80%">
+        <button id="moviebutton" class="btn btn btn-outline-info me-2" type="button"
+                th:classAppend="${area == 'Movies' ? 'active' : ''}">
+            <a id="moviehref" class="nav-link" th:href="@{/movies}">
+                Movies
+            </a>
+        </button>
+        <button id="songbutton" class="btn btn btn-outline-info me-2" type="button"
+                th:classAppend="${area == 'Songs' ? 'active' : ''}">
+            <a id="songhref" class="nav-link" th:href="@{/songs}">
+                Songs
+            </a>
+        </button>
+    </div>
+</nav>
+</body>
+</html>

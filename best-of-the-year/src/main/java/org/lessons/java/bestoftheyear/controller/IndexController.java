@@ -39,16 +39,14 @@ public class IndexController {
     public String movies(Model model) {
         List<Movie> myMovies = getBestMovies();
         model.addAttribute("movies", myMovies);
-        model.addAttribute("name", myName);
-        return "home-page";
+        return "movies-list";
     }
 
     @GetMapping("songs")
     public String songs(Model model) {
         List<Song> mySongs = getBestSongs();
         model.addAttribute("songs", mySongs);
-        model.addAttribute("name", myName);
-        return "home-page";
+        return "songs-list";
     }
 
     @GetMapping("movies/{id}")
